@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/.vs/SimpleUDPReflector
+/SimpleUDPReflector/bin
+/SimpleUDPReflector/obj/Debug
+/SimpleUDPReflector/SimpleUDPReflector.njsproj
+/SimpleUDPReflector/SimpleUDPReflector.njsproj.user
