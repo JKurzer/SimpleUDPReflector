@@ -1,0 +1,14 @@
+{
+  "name": "simple-udpreflector",
+  "version": "0.0.0",
+  "description": "SimpleUDPReflector",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
