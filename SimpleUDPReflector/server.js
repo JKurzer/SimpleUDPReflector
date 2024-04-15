@@ -1,6 +1,6 @@
 'use strict';
 
-const MSG_SIZE = 16;
+const MSG_SIZE = 56;
 const dgram = require('node:dgram');
 
 const server = dgram.createSocket('udp4');
@@ -10,9 +10,8 @@ server.on('error', (err) => {
 });
 
 server.on('message', (msg, rinfo) => {
-    console.log(`Received message from IP:PORT = [${rinfo.address}:${rinfo.port}], Message = "${msg}", length is ${msg.byteLength}`);
+    console.log(`Received message from IP:PORT = [${rinfo.address}:${rinfo.port}], Message = "${msg}", length is ${msg.byteLength}, sending back to source? ${msg.byteLength == MSG_SIZE}`);
     if (msg.byteLength == MSG_SIZE) {
-        console.log(`msg is ${MSG_SIZE} bytes, sending message back`);
         server.send(msg, rinfo.port, rinfo.address);
     }
 });
