@@ -10,7 +10,10 @@ server.on('error', (err) => {
 });
 
 server.on('message', (msg, rinfo) => {
-    console.log(`Received message from IP:PORT = [${rinfo.address}:${rinfo.port}], Message = "${msg}", length is ${msg.byteLength}, sending back to source? ${msg.byteLength == MSG_SIZE}`);
+    //It's unusual for me to leave code commented out in an application.
+    //Normally, I would add a flag that made the server more verbose, but this would be the only statement affected.
+    //This achieves as much, or more, and so I'm leaving it here, commented out.
+    //console.log(`Received message from IP:PORT = [${rinfo.address}:${rinfo.port}], Message = "${msg}", length is ${msg.byteLength}, sending back to source? ${msg.byteLength == MSG_SIZE}`);
     if (msg.byteLength == MSG_SIZE) {
         server.send(msg, rinfo.port, rinfo.address);
     }
