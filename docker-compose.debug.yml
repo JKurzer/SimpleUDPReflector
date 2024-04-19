@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  simpleudpreflector:
+    image: simpleudpreflector
+    build:
+      context: SimpleUDPReflector
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 40000:40000
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "server.js"]
