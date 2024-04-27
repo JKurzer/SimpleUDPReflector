@@ -13,14 +13,15 @@ server.on('error', (err) => {
 });
 
 server.on('message', (msg, rinfo) => {
+  const len = msg.byteLength
   // It's unusual for me to leave code commented out in an application.
   // Normally, I would add a flag that made the server more verbose, but this
   // would be the only statement affected. This achieves as much, or more, and
   // so I'm leaving it here, commented out. console.log(`Received message from
   // IP:PORT = [${rinfo.address}:${rinfo.port}], Message = "${msg}", length is
   // ${msg.byteLength}, sending back to source? ${msg.byteLength == MSG_SIZE}`);
-  if (msg.byteLength == MSG_SIZE_A || msg.byteLength == MSG_SIZE_B ||
-      msg.byteLength == MSG_SIZE_C || msg.byteLength == MSG_SIZE_D) {
+  if (len == MSG_SIZE_A || len == MSG_SIZE_B || len == MSG_SIZE_C ||
+      len == MSG_SIZE_D) {
     server.send(msg, rinfo.port, rinfo.address);
   }
 });
