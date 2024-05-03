@@ -12,8 +12,10 @@ server.on('error', (err) => {
   console.error(`server error:\n${err.stack}`);
 });
 
+process.env.UV_THREADPOOL_SIZE = 64;
+
 server.on('message', (msg, rinfo) => {
-  const len = msg.byteLength
+  const len = msg.byteLength;
   // It's unusual for me to leave code commented out in an application.
   // Normally, I would add a flag that made the server more verbose, but this
   // would be the only statement affected. This achieves as much, or more, and
